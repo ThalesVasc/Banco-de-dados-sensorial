@@ -1,0 +1,81 @@
+/* styles.css */
+
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #1a73e8;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #333;
+}
+
+/* Texto */
+p {
+    font-size: 1.1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.details-section {
+    margin-bottom: 30px;
+}
+
+.details-section strong {
+    color: #333;
+}
+
+/* Amostras */
+.amostras-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.amostras-list li {
+    background-color: #f0f0f0;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Link de voltar */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.back-link:hover {
+    background-color: #155ab8;
+}

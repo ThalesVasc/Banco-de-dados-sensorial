@@ -1,0 +1,10 @@
+<h1>Análises</h1>
+<a href="{{ url_for('nova_analise') }}">Nova análise</a>
+<ul>
+{% for analise in analises %}
+    <li>
+        <strong>{{ analise.nome }}</strong> - {{ analise.status }} -
+        <a href="{{ url_for('amostras', id=analise.id) }}">Ver Amostras</a>
+    </li>
+{% endfor %}
+</ul>

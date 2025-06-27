@@ -1,0 +1,48 @@
+<h1>Análises</h1>
+<a href="{{ url_for('nova_analise') }}">Nova análise</a>
+
+<h3>Lista de Análises:</h3>
+<ul id="lista-analises">
+    {% for analise in analises %}
+        <li id="analise-{{ analise.id }}">
+            <strong>{{ analise.nome }}</strong> - {{ analise.status }} -
+            <a href="{{ url_for('amostras', id=analise.id) }}">Ver Amostras</a>
+
+            <!-- Campo para inserir aluno específico para esta análise -->
+            <label for="nome-aluno-{{ analise.id }}">Nome do Aluno:</label>
+            <input type="text" id="nome-aluno-{{ analise.id }}" name="nome-aluno-{{ analise.id }}">
+            <button onclick="adicionarNomeAluno({{ analise.id }})">Adicionar Aluno</button>
+
+            <!-- Exibe a lista de alunos associados a esta análise -->
+            <span class="alunos"> - Aluno(s):
+                {% for aluno in analise.alunos %}
+                    {{ aluno }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+<script>
+  // Função para adicionar o nome do aluno à análise específica
+  function adicionarNomeAluno(analiseId) {
+    // Captura o nome do aluno digitado no campo específico da análise
+    let nomeAluno = document.getElementById('nome-aluno-' + analiseId).value;
+
+    // Se o campo não estiver vazio
+    if (nomeAluno) {
+      // Encontre o item de análise correspondente usando o ID da análise
+      let analiseItem = document.getElementById('analise-' + analiseId);
+      let alunosSpan = analiseItem.querySelector('.alunos');
+
+      // Adiciona o nome do aluno à lista de alunos da análise
+      if (alunosSpan) {
+        // Se a lista já contém alunos, adiciona o novo aluno
+        alunosSpan.innerHTML += `, ${nomeAluno}`;
+      }
+
+      // Limpa o campo de entrada
+      document.getElementById('nome-aluno-' + analiseId).value = '';
+    }
+  }
+</script>

@@ -1,0 +1,38 @@
+<!-- detalhes_analise.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Análise</title>
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Detalhes da Análise</h1>
+
+        <div class="details-section">
+            <h2>{{ analise.nome }}</h2>
+            <p><strong>Responsável:</strong> {{ analise.responsavel }}</p>
+            <p><strong>Data:</strong> {{ analise.data }}</p>
+            <p><strong>Status:</strong> {{ analise.status }}</p>
+            <p><strong>Tipo de Avaliação:</strong> {{ analise.tipo_avaliacao }}</p>
+            <p><strong>Intenção de Compra:</strong> {{ analise.intencao_compra }}</p>
+        </div>
+
+        <div class="details-section">
+            <h3>Amostras</h3>
+            <ul class="amostras-list">
+            {% for amostra in amostras %}
+                <li>{{ amostra.descricao }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+
+        <a href="{{ url_for('index') }}" class="back-link">Voltar para a lista de análises</a>
+    </div>
+
+</body>
+</html>

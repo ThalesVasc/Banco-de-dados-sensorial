@@ -1,0 +1,7 @@
+<h1>Amostras da Análise {{ analise_id }}</h1>
+<a href="{{ url_for('nova_amostra', id=analise_id) }}">Adicionar nova amostra</a>
+<ul>
+{% for amostra in amostras %}
+    <li>{{ amostra.descricao }}</li>
+{% endfor %}
+</ul>
